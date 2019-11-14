@@ -1,0 +1,51 @@
+<h1>Hello @ViewBag.User.Name</h1>
+<a class="btn btn-primary" href="/AddGame" style="float:right;">+ Add a game</a>
+<h3>All of your games</h3>
+<table class="table table-bordered">
+    <tr>
+        <th>Title</th>
+        <th>Company</th>
+        <th>Year</th>
+        <th>Rating</th>
+        <th>Age</th>
+        <th>Action</th>
+    </tr>
+    @{
+        foreach(var g in ViewBag.YourGames.Games)
+        {
+            <tr>
+                <td><a href="OneGame/@g.Game.GameId">@g.Game.Title</a></td>
+                <td>@g.Game.Company</td>
+                <td>@g.Game.Year</td>
+                <td>@g.Game.Rating</td>
+                <td>@g.Game.Age</td>
+                <td><a href="/UpdateGame/@g.Game.GameId">Edit</a> | <a href="DeleteGame/@g.Game.GameId">Delete</a> | <a href="unjoin/@ViewBag.User.UserId/@g.Game.GameId">Unjoin</a></td>
+            </tr>
+        }
+    }
+</table>
+
+<h3>All the games</h3>
+<table class="table table-bordered">
+    <tr>
+        <th>Title</th>
+        <th>Company</th>
+        <th>Year</th>
+        <th>Rating</th>
+        <th>Age</th>
+        <th>Action</th>
+    </tr>
+    @{
+        foreach(var r in ViewBag.AllGames)
+        {
+            <tr>
+                <td><a href="/OneGame/@r.GameId">@r.Title</a></td>
+                <td>@r.Company</td>
+                <td>@r.Year</td>
+                <td>@r.Rating</td>
+                <td>@r.Age</td>
+                <td><a href="/UpdateGame/@r.GameId">Edit</a> | <a href="DeleteGame/@r.GameId">Delete</a> | <a href="join/@ViewBag.User.UserId/@r.GameId">Join</a></td>
+            </tr>
+        }
+    }
+</table>

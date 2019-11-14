@@ -1,0 +1,29 @@
+<h1>Update @ViewBag.TheGame.Title</h1>
+<div style="float:right;">
+    <a href="/DashboardRedir" class="btn btn-primary">Back to Dash</a>
+    <a href="/Logout" class="btn btn-danger">Logout</a>
+</div>
+@model Game
+<form action="/Update/@ViewBag.TheGame.GameId" method="post">
+    <div class="form-group">
+        <label>Title</label>
+        <span asp-validation-for="Title" style="color:red;"></span>
+        <input asp-for="Title" value="@ViewBag.TheGame.Title" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Company</label>
+        <span asp-validation-for="Company" style="color:red;"></span>
+        <input asp-for="Company" value="@ViewBag.TheGame.Company" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Year</label>
+        <span asp-validation-for="Year" style="color:red;"></span>
+        <input asp-for="Year" value="@ViewBag.TheGame.Year" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Rating</label>
+        <span asp-validation-for="Rating" style="color:red;"></span>
+        <input asp-for="Rating" value="@ViewBag.TheGame.Rating" class="form-control">
+    </div>
+    <input type="submit" class="btn btn-info">
+</form>
